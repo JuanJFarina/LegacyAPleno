@@ -1,0 +1,181 @@
+<html>
+	<head>
+		<script language="javascript">
+			numeros = new Array();
+			orden = new Array();
+			ordenActual = 0;
+			for(x = 0; x < 37; x++) {
+				numeros[x] = 0;
+			}
+			function proceso() {
+				nuevoNumero = document.getElementById("numeros").selectedIndex;
+				nuevoNumero = document.getElementById("numeros").options[nuevoNumero].value;
+				pantalla = document.getElementById("output");
+				ultimoNumero = document.getElementById("lastNumber");
+				orden[ordenActual] = nuevoNumero;
+				ordenActual++;
+				switch(Number(nuevoNumero)) {
+					case 0:
+						numeros[nuevoNumero]++;
+						break;
+					case 1:
+						numeros[nuevoNumero]++;
+						break;
+					case 2:
+						numeros[nuevoNumero]++;
+						break;
+					case 3:
+						numeros[nuevoNumero]++;
+						break;
+					case 4:
+						numeros[nuevoNumero]++;
+						break;
+					case 5:
+						numeros[nuevoNumero]++;
+						break;
+					case 6:
+						numeros[nuevoNumero]++;
+						break;
+					case 7:
+						numeros[nuevoNumero]++;
+						break;
+					case 8:
+						numeros[nuevoNumero]++;
+						break;
+					case 9:
+						numeros[nuevoNumero]++;
+						break;
+					case 10:
+						numeros[nuevoNumero]++;
+						break;
+					case 11:
+						numeros[nuevoNumero]++;
+						break;
+					case 12:
+						numeros[nuevoNumero]++;
+						break;
+					case 13:
+						numeros[nuevoNumero]++;
+						break;
+					case 14:
+						numeros[nuevoNumero]++;
+						break;
+					case 15:
+						numeros[nuevoNumero]++;
+						break;
+					case 16:
+						numeros[nuevoNumero]++;
+						break;
+					case 17:
+						numeros[nuevoNumero]++;
+						break;
+					case 18:
+						numeros[nuevoNumero]++;
+						break;
+					case 19:
+						numeros[nuevoNumero]++;
+						break;
+					case 20:
+						numeros[nuevoNumero]++;
+						break;
+					case 21:
+						numeros[nuevoNumero]++;
+						break;
+					case 22:
+						numeros[nuevoNumero]++;
+						break;
+					case 23:
+						numeros[nuevoNumero]++;
+						break;
+					case 24:
+						numeros[nuevoNumero]++;
+						break;
+					case 25:
+						numeros[nuevoNumero]++;
+						break;
+					case 26:
+						numeros[nuevoNumero]++;
+						break;
+					case 27:
+						numeros[nuevoNumero]++;
+						break;
+					case 28:
+						numeros[nuevoNumero]++;
+						break;
+					case 29:
+						numeros[nuevoNumero]++;
+						break;
+					case 30:
+						numeros[nuevoNumero]++;
+						break;
+					case 31:
+						numeros[nuevoNumero]++;
+						break;
+					case 32:
+						numeros[nuevoNumero]++;
+						break;
+					case 33:
+						numeros[nuevoNumero]++;
+						break;
+					case 34:
+						numeros[nuevoNumero]++;
+						break;
+					case 35:
+						numeros[nuevoNumero]++;
+						break;
+					case 36:
+						numeros[nuevoNumero]++;
+						break;
+					default:
+						break;
+				}
+				ultimoNumero.innerHTML = "Ultimos numeros cargados: <b>" + nuevoNumero + "</b>, <i>" + orden[(ordenActual - 2)] + "</i>...<br>";
+				ultimoNumero.innerHTML += "Total de numeros cargados: " + ordenActual;
+				if(ordenActual > 120) {
+					var restante = ordenActual - 121;
+					numeros[orden[restante]]--;
+					ultimoNumero.innerHTML += " - Listo !"
+				}
+				pantalla.innerHTML = "<u>Numeros Ausentes:</u> ";
+				for(x = 1; x < 37; x++) {
+					if(numeros[x] == 0) {
+						pantalla.innerHTML += "<b>" + x + "</b>, ";
+					}
+				}
+				pantalla.innerHTML += "<br>";
+				pantalla.innerHTML += "<u>Numeros Mas Repetidos:</u> ";
+				for(x = 0; x < 37; x++) {
+					if(numeros[x] >= 9) {
+						pantalla.innerHTML += "<b>" + x + "</b> con " + numeros[x] + " repeticiones<br>";
+					}
+				}
+			}
+			function reiniciar() {
+				numeros = new Array();
+				orden = new Array();
+				ordenActual = 0;
+				for(x = 0; x < 37; x++) {
+					numeros[x] = 0;
+				}
+				ultimoNumero.innerHTML = "";
+				pantalla.innerHTML = "";
+			}
+		</script>
+	</head>
+	<body>
+		<p style="font-size:small">
+			Numeros de mala suerte: 27, 30, 33 y 36<br>Numeros de buena suerte: 5, 10, 13 y 14
+		</p>
+		<select id="numeros">
+			<script language="javascript">
+				for(x = 0; x < 37; x++) {
+					document.write("<option>" + x + "</option>");
+				}
+			</script>
+		</select>
+		<input type="button" value="Cargar" onclick="proceso()">
+		<div id="lastNumber"></div>
+		<div id="output"></div>
+		<input type="button" value="Reiniciar" onclick="reiniciar()">
+	</body>
+</html>
